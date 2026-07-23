@@ -106,7 +106,7 @@ def cmd_list(args):
 def build_parser():
     p = argparse.ArgumentParser(
         prog="postfx",
-        description="Theme-based image post-process / branding pipeline.")
+        description="Theme-based image post-processing & film-emulation pipeline.")
     sub = p.add_subparsers(dest="command", required=True)
 
     r = sub.add_parser("run", help="process a single image or a folder")

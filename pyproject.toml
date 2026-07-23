@@ -57,16 +57,17 @@ postfx = "postfx.cli:main"
 [tool.hatch.version]
 path = "postfx/__init__.py"
 
-[tool.hatch.build.targets.wheel]
-packages = ["postfx"]
+# The wheel target is inferred: hatchling ships the `postfx/` package (its name
+# matches the project) with every file under it, including the theme YAMLs and
+# the .cube LUT — so no explicit [tool.hatch.build.targets.wheel] is needed.
 
 [tool.hatch.build.targets.sdist]
-include = [
-    "/postfx",
-    "/tests",
-    "/README.md",
-    "/LICENSE",
-    "/CHANGELOG.md",
+# Ship all tracked source by default; exclude only the README showcase media
+# (served from GitHub) and CI config, neither needed to build or use the package.
+exclude = [
+    "/assets",
+    "/cat.jpg",
+    "/.github",
 ]
 
 [tool.pytest.ini_options]

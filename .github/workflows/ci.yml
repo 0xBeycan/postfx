@@ -19,6 +19,33 @@ jobs:
         uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python-version }}
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
 
       - name: Run tests
         run: uv run --extra dev pytest -q
+
+  # Prove the built wheel actually ships the bundled themes/LUT and that they
+  # load after a clean install. The source-tree tests above can't catch a
+  # dropped data file, because postfx/themes/ always exists in the checkout.
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Build wheel
+        run: uv build --wheel
+
+      - name: Install the wheel into a clean env
+        run: |
+          uv venv /tmp/wheelenv
+          uv pip install --python /tmp/wheelenv/bin/python "$(ls dist/*.whl)" pytest
+
+      - name: Run the test suite against the installed wheel
+        run: cd /tmp && /tmp/wheelenv/bin/pytest "$GITHUB_WORKSPACE/tests" -q

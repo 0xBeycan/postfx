@@ -210,9 +210,8 @@ def list_themes(category=None, themes_dir=THEMES_DIR):
 def list_luts(themes_dir=THEMES_DIR):
     """List bundled LUT cube files: [(name, path)], sorted by name.
 
-    Exposed so the TS layer / API can enumerate the LUTs we ship (e.g. an enum
-    like Luts.PunchOverlay). Users can also supply their own .cube via a theme's
-    `lut.file`, so this is not the only source of LUTs.
+    Users can also supply their own .cube via a theme's `lut.file`, so the
+    bundled set is not the only source of LUTs.
     """
     out = []
     for root, _dirs, names in os.walk(themes_dir):

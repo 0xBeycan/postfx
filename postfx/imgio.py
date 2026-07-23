@@ -79,7 +79,7 @@ def save_image(path, rgb, alpha=None, jpeg_quality=95, jpeg_cycles=0):
 
 
 def encode_image(rgb, ext=".jpg", jpeg_quality=95, jpeg_cycles=0):
-    """Encode float32 [0,1] RGB to in-memory bytes (for the API). No file write."""
+    """Encode float32 [0,1] RGB to in-memory bytes. No file write."""
     u8 = np.clip(rgb * 255.0 + 0.5, 0, 255).astype(np.uint8)
     bgr = cv2.cvtColor(u8, cv2.COLOR_RGB2BGR)
     if ext.lower() in (".jpg", ".jpeg"):
@@ -95,7 +95,7 @@ def encode_image(rgb, ext=".jpg", jpeg_quality=95, jpeg_cycles=0):
 
 
 def decode_image(data):
-    """Decode in-memory bytes to float32 [0,1] RGB (for the API)."""
+    """Decode in-memory bytes to float32 [0,1] RGB."""
     arr = np.frombuffer(data, dtype=np.uint8)
     img = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if img is None:

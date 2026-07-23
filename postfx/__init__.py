@@ -1,4 +1,4 @@
-"""postfx — theme-based image post-process / branding pipeline.
+"""postfx — theme-based image post-processing & film-emulation pipeline.
 
 Pure Python (numpy, opencv, Pillow, PyYAML). Standalone and dependency-light.
 Runs on CPU; no GPU required.

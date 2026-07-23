@@ -92,6 +92,8 @@ def vibrance_saturation(x, vibrance=0.0, saturation=1.0, skin_protect=0.5):
     """Vibrance + Saturation (separate). Saturation scales uniformly; vibrance
     lifts low-saturation pixels more and protects skin tones.
     """
+    if saturation == 1.0 and vibrance == 0.0:
+        return x
     luma = (x @ LUMA)[..., None]
     if saturation != 1.0:
         x = luma + float(saturation) * (x - luma)
