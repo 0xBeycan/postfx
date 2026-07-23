@@ -1,0 +1,28 @@
+# 11_bright_airy
+# Bright & Airy — the high-key wedding/lifestyle Lightroom staple: light, low contrast, lifted, clean.
+# Suited for: weddings, motherhood/family, bright interiors, soft beauty.
+name: bright_airy
+description: High-key, light, low contrast, lifted and clean
+
+white_balance: { temp: 0.12, tint: 0.03 }
+exposure: { stops: 0.15 }
+highlight_rolloff: { knee: 0.68, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [0.02, 0.02, 0.022]
+  gamma: [1.06, 1.05, 1.06]
+  gain:  [1.02, 1.01, 1.02]
+split_toning:
+  shadow:    [0.006, 0.004, 0.012]
+  highlight: [0.02, 0.014, 0.004]
+  strength: 0.4
+tone_curve: { strength: 0.08, pivot: 0.52 }
+vibrance: { vibrance: 0.1, saturation: 0.92, skin_protect: 0.7 }
+halation: { threshold: 0.62, radius_frac: 0.016, tint: [1.0, 0.75, 0.7], strength: 0.5 }
+distortion: { k: -0.004 }
+chromatic_aberration: { amount: 0.0008 }
+vignette: { strength: 0.06, feather: 0.6 }
+black_point: { lift: [0.05, 0.05, 0.055] }
+clarity: { amount: -0.06, radius_frac: 0.03 }
+grain: { luma: 0.012, chroma: 0.005, size: 1.6, floor: 0.18 }
+sharpen: { amount: 0.28, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

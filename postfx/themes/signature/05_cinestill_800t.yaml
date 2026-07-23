@@ -1,0 +1,28 @@
+# 05_cinestill_800t
+# Cinestill 800T — tungsten-balanced cool/teal cast with signature red halation around highlights.
+# Suited for: night, neon, city, cinematic low-light, moody portraits.
+name: cinestill_800t
+description: Tungsten teal cast with signature red highlight halation
+
+white_balance: { temp: -0.28, tint: 0.05 }
+exposure: { stops: 0.05 }
+highlight_rolloff: { knee: 0.6, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.006]
+  gamma: [1.0, 1.0, 1.0]
+  gain:  [1.0, 0.99, 1.06]
+split_toning:
+  shadow:    [-0.02, 0.006, 0.03]
+  highlight: [0.02, 0.0, 0.01]
+  strength: 0.6
+tone_curve: { strength: 0.34, pivot: 0.44 }
+vibrance: { vibrance: 0.14, saturation: 1.08, skin_protect: 0.4 }
+halation: { threshold: 0.58, radius_frac: 0.022, tint: [1.0, 0.35, 0.3], strength: 1.1 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0022 }
+vignette: { strength: 0.3, feather: 0.42 }
+black_point: { lift: [0.02, 0.018, 0.028] }
+clarity: { amount: 0.15, radius_frac: 0.03 }
+grain: { luma: 0.03, chroma: 0.016, size: 1.7, floor: 0.13 }
+sharpen: { amount: 0.38, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 92, cycles: 0 }

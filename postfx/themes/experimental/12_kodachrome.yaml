@@ -1,0 +1,28 @@
+# 12_kodachrome
+# Saturated red-blue; hard micro-contrast, rich and vintage slide film.
+# Suited for: travel/documentary, retro editorial, vivid scenes, National Geographic feel.
+name: kodachrome
+description: Saturated red-blue, hard micro-contrast, vintage
+
+white_balance: { temp: 0.15, tint: -0.02 }
+exposure: { stops: 0.03 }
+highlight_rolloff: { knee: 0.72, strength: 0.4 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 0.98]
+  gain:  [1.06, 0.99, 1.04]
+split_toning:
+  shadow:    [-0.01, 0.0, 0.025]
+  highlight: [0.03, 0.0, -0.02]
+  strength: 0.6
+tone_curve: { strength: 0.5, pivot: 0.44 }
+vibrance: { vibrance: 0.1, saturation: 1.15, skin_protect: 0.4 }
+halation: { threshold: 0.78, radius_frac: 0.01, tint: [1.0, 0.5, 0.35], strength: 0.4 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0012 }
+vignette: { strength: 0.28, feather: 0.45 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.3, radius_frac: 0.025 }
+grain: { luma: 0.022, chroma: 0.01, size: 1.6, floor: 0.12 }
+sharpen: { amount: 0.5, radius_frac: 0.0013, halo: 0.08 }
+jpeg: { quality: 93, cycles: 0 }

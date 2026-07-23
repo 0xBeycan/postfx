@@ -1,0 +1,28 @@
+# 10_soft_pastel
+# High bloom; low contrast, pink/lilac split tone, dreamy and soft.
+# Suited for: beauty/cosmetics, romantic portrait, wedding, soft lifestyle.
+name: soft_pastel
+description: High bloom, low contrast, pink/lilac split tone
+
+white_balance: { temp: 0.08, tint: 0.08 }
+exposure: { stops: 0.08 }
+highlight_rolloff: { knee: 0.65, strength: 0.6 }
+lift_gamma_gain:
+  lift:  [0.01, 0.006, 0.012]
+  gamma: [1.04, 1.03, 1.05]
+  gain:  [1.02, 0.99, 1.01]
+split_toning:
+  shadow:    [0.012, 0.0, 0.03]
+  highlight: [0.03, 0.005, 0.02]
+  strength: 0.6
+tone_curve: { strength: 0.06, pivot: 0.5 }
+vibrance: { vibrance: 0.08, saturation: 0.95, skin_protect: 0.6 }
+halation: { threshold: 0.6, radius_frac: 0.022, tint: [1.0, 0.7, 0.85], strength: 0.9 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.001 }
+vignette: { strength: 0.1, feather: 0.6 }
+black_point: { lift: [0.04, 0.035, 0.05] }
+clarity: { amount: -0.1, radius_frac: 0.03 }
+grain: { luma: 0.015, chroma: 0.008, size: 1.7, floor: 0.2 }
+sharpen: { amount: 0.2, radius_frac: 0.0016, halo: 0.0 }
+jpeg: { quality: 93, cycles: 0 }

@@ -1,0 +1,28 @@
+# 13_clean_commercial
+# Clean commercial — neutral, crisp, accurate color with natural-but-polished skin and high clarity.
+# Suited for: e-commerce, beauty, product, corporate, catalog.
+name: clean_commercial
+description: Neutral, crisp, accurate color, polished skin
+
+white_balance: { temp: 0.03, tint: 0.0 }
+exposure: { stops: 0.04 }
+highlight_rolloff: { knee: 0.76, strength: 0.35 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 1.0]
+  gain:  [1.02, 1.01, 1.01]
+split_toning:
+  shadow:    [-0.004, 0.0, 0.006]
+  highlight: [0.006, 0.004, -0.004]
+  strength: 0.25
+tone_curve: { strength: 0.28, pivot: 0.46 }
+vibrance: { vibrance: 0.18, saturation: 1.04, skin_protect: 0.7 }
+halation: { threshold: 0.85, radius_frac: 0.01, tint: [1.0, 0.7, 0.55], strength: 0.0 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.0 }
+vignette: { strength: 0.1, feather: 0.58 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.26, radius_frac: 0.028 }
+grain: { luma: 0.006, chroma: 0.0, size: 1.4, floor: 0.2 }
+sharpen: { amount: 0.55, radius_frac: 0.0013, halo: 0.0 }
+jpeg: { quality: 96, cycles: 0 }

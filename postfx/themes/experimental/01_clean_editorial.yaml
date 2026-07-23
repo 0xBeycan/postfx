@@ -1,0 +1,28 @@
+# 01_clean_editorial
+# Neutral and clean; high clarity, minimal grain, faithful color.
+# Suited for: editorial / catalog, product, clean studio portrait, LinkedIn.
+name: clean_editorial
+description: Neutral, clean, high clarity, minimal grain
+
+white_balance: { temp: 0.0, tint: 0.0 }
+exposure: { stops: 0.02 }
+highlight_rolloff: { knee: 0.75, strength: 0.3 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 1.0]
+  gain:  [1.0, 1.0, 1.0]
+split_toning:
+  shadow:    [0.0, 0.0, 0.0]
+  highlight: [0.0, 0.0, 0.0]
+  strength: 0.0
+tone_curve: { strength: 0.18, pivot: 0.45 }
+vibrance: { vibrance: 0.12, saturation: 1.02, skin_protect: 0.6 }
+halation: { threshold: 0.8, radius_frac: 0.01, tint: [1.0, 0.6, 0.45], strength: 0.0 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.0 }
+vignette: { strength: 0.12, feather: 0.6 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.22, radius_frac: 0.03 }
+grain: { luma: 0.008, chroma: 0.0, size: 1.4, floor: 0.2 }
+sharpen: { amount: 0.5, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 95, cycles: 0 }

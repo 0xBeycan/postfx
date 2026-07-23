@@ -1,0 +1,28 @@
+# 02_gold_200
+# Kodak Gold 200 — nostalgic warm consumer film, golden amber cast, punchy and sunny.
+# Suited for: nostalgic lifestyle, summer, travel snapshots, everyday warmth.
+name: gold_200
+description: Nostalgic golden-amber warmth, punchy consumer film
+
+white_balance: { temp: 0.34, tint: 0.02 }
+exposure: { stops: 0.06 }
+highlight_rolloff: { knee: 0.66, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [0.008, 0.006, 0.0]
+  gamma: [1.02, 1.01, 0.99]
+  gain:  [1.04, 1.01, 0.94]
+split_toning:
+  shadow:    [0.004, 0.004, 0.006]
+  highlight: [0.04, 0.022, -0.02]
+  strength: 0.55
+tone_curve: { strength: 0.26, pivot: 0.45 }
+vibrance: { vibrance: 0.18, saturation: 1.1, skin_protect: 0.55 }
+halation: { threshold: 0.68, radius_frac: 0.013, tint: [1.0, 0.55, 0.35], strength: 0.5 }
+distortion: { k: -0.007 }
+chromatic_aberration: { amount: 0.0013 }
+vignette: { strength: 0.22, feather: 0.5 }
+black_point: { lift: 0.015 }
+clarity: { amount: 0.12, radius_frac: 0.03 }
+grain: { luma: 0.022, chroma: 0.009, size: 1.6, floor: 0.14 }
+sharpen: { amount: 0.35, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 93, cycles: 0 }

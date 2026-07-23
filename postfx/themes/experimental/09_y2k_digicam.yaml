@@ -1,0 +1,28 @@
+# 09_y2k_digicam
+# Night flash; harsh highlights, chroma noise, low JPEG quality, 2000s digital.
+# Suited for: party/night content, nostalgic Y2K aesthetic, flash portrait, meme/feed.
+name: y2k_digicam
+description: Night flash, harsh highlights, chroma noise, low JPEG q
+
+white_balance: { temp: -0.05, tint: 0.05 }
+exposure: { stops: 0.15 }
+highlight_rolloff: { knee: 0.85, strength: 0.15 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.006]
+  gamma: [0.98, 0.98, 0.99]
+  gain:  [1.03, 1.02, 1.03]
+split_toning:
+  shadow:    [-0.01, 0.0, 0.02]
+  highlight: [0.01, 0.0, 0.005]
+  strength: 0.35
+tone_curve: { strength: 0.4, pivot: 0.46 }
+vibrance: { vibrance: 0.1, saturation: 1.12, skin_protect: 0.3 }
+halation: { threshold: 0.72, radius_frac: 0.01, tint: [1.0, 0.6, 0.5], strength: 0.6 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0028 }
+vignette: { strength: 0.18, feather: 0.5 }
+black_point: { lift: 0.02 }
+clarity: { amount: 0.1, radius_frac: 0.03 }
+grain: { luma: 0.03, chroma: 0.04, size: 1.5, floor: 0.15 }
+sharpen: { amount: 0.7, radius_frac: 0.0012, halo: 0.15 }
+jpeg: { quality: 72, cycles: 2 }

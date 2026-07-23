@@ -1,0 +1,28 @@
+# 09_cinematic_teal_orange
+# The Hollywood blockbuster grade — teal shadows, orange skin, high contrast, filmic.
+# Suited for: cinematic portraits, posters, action/lifestyle, trailers.
+name: cinematic_teal_orange
+description: Blockbuster teal shadows, orange skin, high contrast
+
+white_balance: { temp: 0.08, tint: 0.0 }
+exposure: { stops: 0.0 }
+highlight_rolloff: { knee: 0.7, strength: 0.45 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.006]
+  gamma: [0.99, 1.0, 1.0]
+  gain:  [1.04, 1.0, 0.99]
+split_toning:
+  shadow:    [-0.03, 0.006, 0.038]
+  highlight: [0.045, 0.014, -0.032]
+  strength: 0.85
+tone_curve: { strength: 0.5, pivot: 0.42 }
+vibrance: { vibrance: 0.14, saturation: 1.08, skin_protect: 0.55 }
+halation: { threshold: 0.76, radius_frac: 0.011, tint: [1.0, 0.6, 0.4], strength: 0.4 }
+distortion: { k: -0.008 }
+chromatic_aberration: { amount: 0.0018 }
+vignette: { strength: 0.34, feather: 0.42 }
+black_point: { lift: 0.008 }
+clarity: { amount: 0.24, radius_frac: 0.03 }
+grain: { luma: 0.018, chroma: 0.008, size: 1.6, floor: 0.14 }
+sharpen: { amount: 0.42, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 93, cycles: 0 }

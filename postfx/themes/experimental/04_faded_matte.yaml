@@ -1,0 +1,28 @@
+# 04_faded_matte
+# Lifted blacks; low contrast, faded pastel, matte film feel.
+# Suited for: indie/lifestyle, moodboard, lightly nostalgic editorial, blog.
+name: faded_matte
+description: Lifted blacks, low contrast, faded pastel
+
+white_balance: { temp: -0.05, tint: 0.03 }
+exposure: { stops: 0.03 }
+highlight_rolloff: { knee: 0.7, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.05, 1.05, 1.06]
+  gain:  [0.98, 0.98, 0.99]
+split_toning:
+  shadow:    [0.015, 0.0, 0.02]
+  highlight: [0.02, 0.01, 0.0]
+  strength: 0.5
+tone_curve: { strength: 0.06, pivot: 0.5 }
+vibrance: { vibrance: 0.05, saturation: 0.88, skin_protect: 0.5 }
+halation: { threshold: 0.7, radius_frac: 0.012, tint: [1.0, 0.7, 0.6], strength: 0.3 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.001 }
+vignette: { strength: 0.12, feather: 0.55 }
+black_point: { lift: [0.06, 0.055, 0.05] }
+clarity: { amount: -0.05, radius_frac: 0.03 }
+grain: { luma: 0.025, chroma: 0.012, size: 1.8, floor: 0.2 }
+sharpen: { amount: 0.25, radius_frac: 0.0016, halo: 0.0 }
+jpeg: { quality: 92, cycles: 0 }

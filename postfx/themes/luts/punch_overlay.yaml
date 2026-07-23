@@ -1,0 +1,15 @@
+# punch_overlay
+# Punch Overlay LUT — a bundled example .cube look (contrast + color punch), the LUT is the star.
+# Suited for: quick punchy grade, testing external LUTs, drop-in creative looks.
+# NOTE: LUT-based theme. The .cube does the color; only a light finish (grain/sharpen) is added.
+name: punch_overlay
+description: Bundled example LUT (.cube) — punchy contrast/color
+
+lut: { file: PunchOverlay.cube, intensity: 1.0 }
+
+# A restrained finish on top so LUT themes still feel "processed" and consistent.
+highlight_rolloff: { knee: 0.78, strength: 0.25 }
+vignette: { strength: 0.12, feather: 0.55 }
+grain: { luma: 0.01, chroma: 0.004, size: 1.5, floor: 0.18 }
+sharpen: { amount: 0.35, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

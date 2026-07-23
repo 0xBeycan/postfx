@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "postfx"
+dynamic = ["version"]
+description = "Theme-based image post-processing & film-emulation pipeline — pure Python, CPU, no GPU."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "0xBeycan", email = "halilbeycan0@gmail.com" }]
+keywords = [
+    "image",
+    "post-processing",
+    "image-processing",
+    "film-emulation",
+    "color-grading",
+    "lut",
+    "photography",
+    "cli",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "numpy>=1.21",
+    "opencv-python-headless>=4.5",
+    "Pillow>=9.0",
+    "PyYAML>=5.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/0xBeycan/postfx"
+Repository = "https://github.com/0xBeycan/postfx"
+Issues = "https://github.com/0xBeycan/postfx/issues"
+
+[project.scripts]
+postfx = "postfx.cli:main"
+
+[tool.hatch.version]
+path = "postfx/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["postfx"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/postfx",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+    "/CHANGELOG.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

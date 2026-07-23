@@ -1,0 +1,28 @@
+# 01_portra_400
+# Kodak Portra 400 — warm but restrained, creamy skin, soft highlights, the wedding/portrait standard.
+# Suited for: portraits, weddings, fashion, any people-first content.
+name: portra_400
+description: Creamy warm skin, soft highlights, low-medium contrast
+
+white_balance: { temp: 0.18, tint: 0.03 }
+exposure: { stops: 0.05 }
+highlight_rolloff: { knee: 0.62, strength: 0.6 }
+lift_gamma_gain:
+  lift:  [0.006, 0.004, 0.002]
+  gamma: [1.03, 1.01, 0.99]
+  gain:  [1.02, 1.0, 0.97]
+split_toning:
+  shadow:    [-0.006, 0.0, 0.014]
+  highlight: [0.022, 0.012, -0.012]
+  strength: 0.45
+tone_curve: { strength: 0.18, pivot: 0.46 }
+vibrance: { vibrance: 0.14, saturation: 1.02, skin_protect: 0.75 }
+halation: { threshold: 0.72, radius_frac: 0.012, tint: [1.0, 0.6, 0.45], strength: 0.35 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.001 }
+vignette: { strength: 0.16, feather: 0.55 }
+black_point: { lift: 0.012 }
+clarity: { amount: 0.08, radius_frac: 0.035 }
+grain: { luma: 0.016, chroma: 0.006, size: 1.5, floor: 0.15 }
+sharpen: { amount: 0.32, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 95, cycles: 0 }

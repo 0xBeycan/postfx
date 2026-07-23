@@ -1,0 +1,28 @@
+# 03_teal_orange
+# Cinematic; teal shadows, orange skin, high-contrast blockbuster look.
+# Suited for: cinematic portrait, action/lifestyle, poster, trailer frame.
+name: teal_orange
+description: Cinematic, teal shadows / orange skin, high contrast
+
+white_balance: { temp: 0.1, tint: 0.0 }
+exposure: { stops: 0.0 }
+highlight_rolloff: { knee: 0.72, strength: 0.4 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.005]
+  gamma: [1.0, 1.0, 1.0]
+  gain:  [1.05, 1.0, 0.98]
+split_toning:
+  shadow:    [-0.025, 0.008, 0.03]
+  highlight: [0.04, 0.012, -0.03]
+  strength: 0.8
+tone_curve: { strength: 0.5, pivot: 0.42 }
+vibrance: { vibrance: 0.15, saturation: 1.1, skin_protect: 0.5 }
+halation: { threshold: 0.75, radius_frac: 0.01, tint: [1.0, 0.6, 0.4], strength: 0.4 }
+distortion: { k: -0.01 }
+chromatic_aberration: { amount: 0.0018 }
+vignette: { strength: 0.32, feather: 0.45 }
+black_point: { lift: 0.01 }
+clarity: { amount: 0.25, radius_frac: 0.03 }
+grain: { luma: 0.02, chroma: 0.01, size: 1.6, floor: 0.15 }
+sharpen: { amount: 0.45, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

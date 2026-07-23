@@ -1,0 +1,28 @@
+# 15_sunbleached
+# Overexposed; washed-out color, warm fade, sun-bleached retro.
+# Suited for: summer/beach, nostalgic vacation, boho lifestyle, outdoor campaign.
+name: sunbleached
+description: Overexposed, washed-out color, warm fade
+
+white_balance: { temp: 0.32, tint: 0.04 }
+exposure: { stops: 0.3 }
+highlight_rolloff: { knee: 0.6, strength: 0.35 }
+lift_gamma_gain:
+  lift:  [0.02, 0.018, 0.012]
+  gamma: [1.05, 1.04, 1.03]
+  gain:  [1.04, 1.02, 0.98]
+split_toning:
+  shadow:    [0.01, 0.005, 0.01]
+  highlight: [0.04, 0.02, -0.01]
+  strength: 0.5
+tone_curve: { strength: 0.05, pivot: 0.52 }
+vibrance: { vibrance: 0.05, saturation: 0.8, skin_protect: 0.5 }
+halation: { threshold: 0.55, radius_frac: 0.018, tint: [1.0, 0.6, 0.45], strength: 0.7 }
+distortion: { k: -0.008 }
+chromatic_aberration: { amount: 0.0015 }
+vignette: { strength: 0.05, feather: 0.6 }
+black_point: { lift: [0.08, 0.07, 0.06] }
+clarity: { amount: 0.05, radius_frac: 0.035 }
+grain: { luma: 0.022, chroma: 0.01, size: 1.7, floor: 0.15 }
+sharpen: { amount: 0.25, radius_frac: 0.0016, halo: 0.0 }
+jpeg: { quality: 93, cycles: 0 }

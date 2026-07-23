@@ -1,0 +1,28 @@
+# 12_dark_moody
+# Dark & Moody — the rich, earthy, low-key wedding/lifestyle Lightroom staple.
+# Suited for: moody weddings, editorial, food, atmospheric lifestyle.
+name: dark_moody
+description: Dark, earthy, rich shadows, atmospheric
+
+white_balance: { temp: 0.05, tint: -0.02 }
+exposure: { stops: -0.12 }
+highlight_rolloff: { knee: 0.7, strength: 0.45 }
+lift_gamma_gain:
+  lift:  [-0.004, -0.004, -0.004]
+  gamma: [0.93, 0.93, 0.94]
+  gain:  [0.99, 0.98, 0.97]
+split_toning:
+  shadow:    [0.006, 0.008, -0.006]
+  highlight: [0.02, 0.012, -0.008]
+  strength: 0.5
+tone_curve: { strength: 0.4, pivot: 0.42 }
+vibrance: { vibrance: 0.06, saturation: 0.85, skin_protect: 0.5 }
+halation: { threshold: 0.76, radius_frac: 0.012, tint: [1.0, 0.55, 0.4], strength: 0.4 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0014 }
+vignette: { strength: 0.4, feather: 0.4 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.22, radius_frac: 0.03 }
+grain: { luma: 0.024, chroma: 0.01, size: 1.7, floor: 0.12 }
+sharpen: { amount: 0.38, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 92, cycles: 0 }

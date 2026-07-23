@@ -1,0 +1,28 @@
+# 14_neon_night
+# Magenta/cyan split tone; strong bloom, city-night neon, cyberpunk feel.
+# Suited for: night city/street, neon portrait, music/club, tech/gaming content.
+name: neon_night
+description: Magenta/cyan split tone, strong bloom, city night
+
+white_balance: { temp: -0.12, tint: 0.1 }
+exposure: { stops: -0.08 }
+highlight_rolloff: { knee: 0.72, strength: 0.4 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.008]
+  gamma: [0.98, 0.98, 1.0]
+  gain:  [1.02, 0.98, 1.05]
+split_toning:
+  shadow:    [-0.02, 0.01, 0.035]
+  highlight: [0.04, -0.01, 0.03]
+  strength: 0.75
+tone_curve: { strength: 0.42, pivot: 0.42 }
+vibrance: { vibrance: 0.15, saturation: 1.15, skin_protect: 0.3 }
+halation: { threshold: 0.68, radius_frac: 0.02, tint: [1.0, 0.45, 0.75], strength: 1.0 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.003 }
+vignette: { strength: 0.38, feather: 0.4 }
+black_point: { lift: [0.02, 0.015, 0.03] }
+clarity: { amount: 0.22, radius_frac: 0.028 }
+grain: { luma: 0.03, chroma: 0.025, size: 1.6, floor: 0.12 }
+sharpen: { amount: 0.45, radius_frac: 0.0013, halo: 0.0 }
+jpeg: { quality: 90, cycles: 1 }

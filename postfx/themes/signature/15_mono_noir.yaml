@@ -1,0 +1,28 @@
+# 15_mono_noir
+# Cinematic B&W noir — deep blacks, bright highlights, heavy contrast and vignette, cool-toned shadows.
+# Suited for: dramatic B&W portraits, fine-art, editorial, film-noir mood.
+name: mono_noir
+description: Cinematic high-contrast B&W, deep blacks, cool tone
+
+white_balance: { temp: 0.0, tint: 0.0 }
+exposure: { stops: -0.05 }
+highlight_rolloff: { knee: 0.72, strength: 0.35 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [0.9, 0.9, 0.9]
+  gain:  [1.0, 1.0, 1.0]
+split_toning:
+  shadow:    [0.0, 0.0, 0.0]
+  highlight: [0.0, 0.0, 0.0]
+  strength: 0.0
+tone_curve: { strength: 0.6, pivot: 0.42 }
+vibrance: { vibrance: 0.0, saturation: 0.0, skin_protect: 0.0 }
+halation: { threshold: 0.82, radius_frac: 0.009, tint: [1.0, 1.0, 1.0], strength: 0.15 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0 }
+vignette: { strength: 0.5, feather: 0.36 }
+black_point: { lift: [0.0, 0.005, 0.012] }
+clarity: { amount: 0.3, radius_frac: 0.026 }
+grain: { luma: 0.035, chroma: 0.0, size: 1.7, floor: 0.1 }
+sharpen: { amount: 0.5, radius_frac: 0.0013, halo: 0.08 }
+jpeg: { quality: 92, cycles: 0 }

@@ -1,0 +1,28 @@
+# 03_pro_400h
+# Fuji Pro 400H — soft, airy pastel with minty cyan-green shadows, low contrast, wedding favorite.
+# Suited for: weddings, editorial, soft lifestyle, bright outdoor portraits.
+name: pro_400h
+description: Soft airy pastel, minty cyan-green shadows, low contrast
+
+white_balance: { temp: 0.06, tint: -0.06 }
+exposure: { stops: 0.08 }
+highlight_rolloff: { knee: 0.6, strength: 0.6 }
+lift_gamma_gain:
+  lift:  [0.006, 0.01, 0.008]
+  gamma: [1.04, 1.04, 1.05]
+  gain:  [0.99, 1.01, 1.0]
+split_toning:
+  shadow:    [-0.01, 0.012, 0.008]
+  highlight: [0.02, 0.014, 0.0]
+  strength: 0.55
+tone_curve: { strength: 0.1, pivot: 0.5 }
+vibrance: { vibrance: 0.1, saturation: 0.96, skin_protect: 0.7 }
+halation: { threshold: 0.66, radius_frac: 0.016, tint: [1.0, 0.7, 0.6], strength: 0.5 }
+distortion: { k: -0.005 }
+chromatic_aberration: { amount: 0.001 }
+vignette: { strength: 0.14, feather: 0.55 }
+black_point: { lift: [0.03, 0.032, 0.03] }
+clarity: { amount: 0.0, radius_frac: 0.035 }
+grain: { luma: 0.016, chroma: 0.007, size: 1.6, floor: 0.16 }
+sharpen: { amount: 0.28, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

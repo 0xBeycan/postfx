@@ -1,0 +1,28 @@
+# 08_tri_x_400
+# Kodak Tri-X 400 — classic high-contrast black & white film with pronounced grain and deep blacks.
+# Suited for: documentary, street, dramatic B&W portraits, timeless editorial.
+name: tri_x_400
+description: Classic high-contrast B&W film, pronounced grain
+
+white_balance: { temp: 0.0, tint: 0.0 }
+exposure: { stops: 0.03 }
+highlight_rolloff: { knee: 0.7, strength: 0.4 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [0.98, 0.98, 0.98]
+  gain:  [1.0, 1.0, 1.0]
+split_toning:
+  shadow:    [0.0, 0.0, 0.0]
+  highlight: [0.0, 0.0, 0.0]
+  strength: 0.0
+tone_curve: { strength: 0.5, pivot: 0.43 }
+vibrance: { vibrance: 0.0, saturation: 0.0, skin_protect: 0.0 }
+halation: { threshold: 0.8, radius_frac: 0.01, tint: [1.0, 1.0, 1.0], strength: 0.2 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0 }
+vignette: { strength: 0.3, feather: 0.44 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.25, radius_frac: 0.028 }
+grain: { luma: 0.05, chroma: 0.0, size: 1.8, floor: 0.12 }
+sharpen: { amount: 0.45, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 92, cycles: 0 }

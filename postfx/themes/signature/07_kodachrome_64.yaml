@@ -1,0 +1,28 @@
+# 07_kodachrome_64
+# Kodachrome 64 — rich reds and blues, hard micro-contrast, archival vintage slide look.
+# Suited for: travel, documentary, editorial, timeless vivid scenes.
+name: kodachrome_64
+description: Rich reds and blues, hard micro-contrast, vintage slide
+
+white_balance: { temp: 0.12, tint: -0.02 }
+exposure: { stops: 0.03 }
+highlight_rolloff: { knee: 0.72, strength: 0.4 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 0.98]
+  gain:  [1.05, 0.99, 1.03]
+split_toning:
+  shadow:    [-0.012, 0.0, 0.022]
+  highlight: [0.03, 0.004, -0.02]
+  strength: 0.55
+tone_curve: { strength: 0.48, pivot: 0.44 }
+vibrance: { vibrance: 0.1, saturation: 1.12, skin_protect: 0.45 }
+halation: { threshold: 0.78, radius_frac: 0.01, tint: [1.0, 0.5, 0.35], strength: 0.35 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0012 }
+vignette: { strength: 0.28, feather: 0.45 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.28, radius_frac: 0.025 }
+grain: { luma: 0.018, chroma: 0.008, size: 1.5, floor: 0.13 }
+sharpen: { amount: 0.48, radius_frac: 0.0013, halo: 0.06 }
+jpeg: { quality: 93, cycles: 0 }

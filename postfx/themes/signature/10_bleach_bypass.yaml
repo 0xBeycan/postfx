@@ -1,0 +1,28 @@
+# 10_bleach_bypass
+# Bleach bypass / silver retention — desaturated, high contrast, silvery and gritty.
+# Suited for: war/action cinema, edgy fashion, gritty urban, dramatic menswear.
+name: bleach_bypass
+description: Desaturated, high-contrast, silvery and gritty
+
+white_balance: { temp: -0.05, tint: 0.0 }
+exposure: { stops: 0.0 }
+highlight_rolloff: { knee: 0.72, strength: 0.35 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [0.94, 0.94, 0.94]
+  gain:  [1.02, 1.02, 1.02]
+split_toning:
+  shadow:    [-0.006, 0.0, 0.006]
+  highlight: [0.006, 0.006, 0.004]
+  strength: 0.3
+tone_curve: { strength: 0.55, pivot: 0.44 }
+vibrance: { vibrance: 0.0, saturation: 0.6, skin_protect: 0.4 }
+halation: { threshold: 0.78, radius_frac: 0.01, tint: [1.0, 0.8, 0.7], strength: 0.3 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0014 }
+vignette: { strength: 0.34, feather: 0.42 }
+black_point: { lift: 0.012 }
+clarity: { amount: 0.34, radius_frac: 0.026 }
+grain: { luma: 0.03, chroma: 0.006, size: 1.7, floor: 0.12 }
+sharpen: { amount: 0.55, radius_frac: 0.0013, halo: 0.1 }
+jpeg: { quality: 92, cycles: 0 }

@@ -1,0 +1,28 @@
+# 11_moody_dark
+# Dark and low-key; heavy vignette, compressed shadows, dramatic.
+# Suited for: dramatic portrait, fitness/menswear, cinematic dark scene, music.
+name: moody_dark
+description: Dark, heavy vignette, compressed shadows
+
+white_balance: { temp: -0.1, tint: 0.02 }
+exposure: { stops: -0.15 }
+highlight_rolloff: { knee: 0.7, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [-0.008, -0.008, -0.004]
+  gamma: [0.92, 0.92, 0.94]
+  gain:  [0.98, 0.98, 1.0]
+split_toning:
+  shadow:    [-0.015, 0.0, 0.02]
+  highlight: [0.01, 0.005, -0.01]
+  strength: 0.6
+tone_curve: { strength: 0.45, pivot: 0.4 }
+vibrance: { vibrance: 0.08, saturation: 0.95, skin_protect: 0.5 }
+halation: { threshold: 0.78, radius_frac: 0.012, tint: [1.0, 0.55, 0.4], strength: 0.5 }
+distortion: { k: -0.008 }
+chromatic_aberration: { amount: 0.0015 }
+vignette: { strength: 0.55, feather: 0.3 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.2, radius_frac: 0.03 }
+grain: { luma: 0.028, chroma: 0.012, size: 1.7, floor: 0.1 }
+sharpen: { amount: 0.35, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 92, cycles: 0 }

@@ -1,0 +1,28 @@
+# 04_ektar_100
+# Kodak Ektar 100 — vivid, highly saturated (deep blues and reds), fine grain, high contrast.
+# Suited for: landscape, travel, product, vivid outdoor scenes.
+name: ektar_100
+description: Vivid saturated color, deep blues, fine grain, high contrast
+
+white_balance: { temp: 0.05, tint: 0.0 }
+exposure: { stops: 0.02 }
+highlight_rolloff: { knee: 0.74, strength: 0.35 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 0.99]
+  gain:  [1.04, 1.0, 1.03]
+split_toning:
+  shadow:    [-0.012, 0.0, 0.02]
+  highlight: [0.02, 0.006, -0.012]
+  strength: 0.45
+tone_curve: { strength: 0.42, pivot: 0.44 }
+vibrance: { vibrance: 0.16, saturation: 1.18, skin_protect: 0.45 }
+halation: { threshold: 0.8, radius_frac: 0.009, tint: [1.0, 0.6, 0.45], strength: 0.25 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0012 }
+vignette: { strength: 0.24, feather: 0.5 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.22, radius_frac: 0.028 }
+grain: { luma: 0.01, chroma: 0.004, size: 1.4, floor: 0.16 }
+sharpen: { amount: 0.45, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

@@ -1,0 +1,28 @@
+# 08_analog_35mm
+# Pronounced grain; slight CA, green-leaning shadows, scanned 35mm negative.
+# Suited for: analog/retro portrait, street photography, music/culture, editorial.
+name: analog_35mm
+description: Pronounced grain, slight CA, green-leaning shadows
+
+white_balance: { temp: 0.12, tint: -0.03 }
+exposure: { stops: 0.03 }
+highlight_rolloff: { knee: 0.68, strength: 0.5 }
+lift_gamma_gain:
+  lift:  [0.006, 0.008, 0.004]
+  gamma: [1.02, 1.03, 1.0]
+  gain:  [1.02, 1.0, 0.98]
+split_toning:
+  shadow:    [0.0, 0.02, -0.008]
+  highlight: [0.025, 0.012, -0.015]
+  strength: 0.55
+tone_curve: { strength: 0.3, pivot: 0.45 }
+vibrance: { vibrance: 0.12, saturation: 1.05, skin_protect: 0.5 }
+halation: { threshold: 0.7, radius_frac: 0.013, tint: [1.0, 0.55, 0.4], strength: 0.5 }
+distortion: { k: -0.012 }
+chromatic_aberration: { amount: 0.0022 }
+vignette: { strength: 0.3, feather: 0.45 }
+black_point: { lift: 0.025 }
+clarity: { amount: 0.15, radius_frac: 0.03 }
+grain: { luma: 0.05, chroma: 0.022, size: 1.9, floor: 0.12 }
+sharpen: { amount: 0.3, radius_frac: 0.0016, halo: 0.0 }
+jpeg: { quality: 92, cycles: 1 }

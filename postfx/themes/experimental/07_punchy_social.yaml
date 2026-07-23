@@ -1,0 +1,28 @@
+# 07_punchy_social
+# High saturation + contrast; pops in the feed, vivid and crisp.
+# Suited for: social reels/feed, ads, product launch, thumbnails.
+name: punchy_social
+description: High saturation + contrast, pops in the feed
+
+white_balance: { temp: 0.08, tint: 0.0 }
+exposure: { stops: 0.05 }
+highlight_rolloff: { knee: 0.78, strength: 0.3 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.0]
+  gamma: [1.0, 1.0, 1.0]
+  gain:  [1.03, 1.02, 1.02]
+split_toning:
+  shadow:    [-0.01, 0.0, 0.01]
+  highlight: [0.01, 0.005, -0.01]
+  strength: 0.3
+tone_curve: { strength: 0.55, pivot: 0.44 }
+vibrance: { vibrance: 0.28, saturation: 1.22, skin_protect: 0.4 }
+halation: { threshold: 0.8, radius_frac: 0.008, tint: [1.0, 0.7, 0.5], strength: 0.3 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.001 }
+vignette: { strength: 0.2, feather: 0.5 }
+black_point: { lift: 0.0 }
+clarity: { amount: 0.32, radius_frac: 0.028 }
+grain: { luma: 0.008, chroma: 0.0, size: 1.4, floor: 0.2 }
+sharpen: { amount: 0.6, radius_frac: 0.0013, halo: 0.1 }
+jpeg: { quality: 92, cycles: 0 }

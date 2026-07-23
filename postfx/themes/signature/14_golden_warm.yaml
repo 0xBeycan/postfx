@@ -1,0 +1,28 @@
+# 14_golden_warm
+# Golden hour grade — warm, glowy, sun-kissed skin with golden highlights and gentle halation.
+# Suited for: outdoor portraits, romantic/lifestyle, travel, summer campaigns.
+name: golden_warm
+description: Warm, glowy, sun-kissed skin, golden highlights
+
+white_balance: { temp: 0.4, tint: 0.05 }
+exposure: { stops: 0.08 }
+highlight_rolloff: { knee: 0.62, strength: 0.6 }
+lift_gamma_gain:
+  lift:  [0.008, 0.004, 0.0]
+  gamma: [1.02, 1.0, 0.98]
+  gain:  [1.05, 1.0, 0.92]
+split_toning:
+  shadow:    [-0.008, 0.0, 0.016]
+  highlight: [0.05, 0.026, -0.03]
+  strength: 0.6
+tone_curve: { strength: 0.2, pivot: 0.46 }
+vibrance: { vibrance: 0.18, saturation: 1.04, skin_protect: 0.65 }
+halation: { threshold: 0.62, radius_frac: 0.018, tint: [1.0, 0.5, 0.28], strength: 0.75 }
+distortion: { k: -0.006 }
+chromatic_aberration: { amount: 0.0013 }
+vignette: { strength: 0.26, feather: 0.46 }
+black_point: { lift: 0.016 }
+clarity: { amount: 0.1, radius_frac: 0.035 }
+grain: { luma: 0.018, chroma: 0.008, size: 1.6, floor: 0.15 }
+sharpen: { amount: 0.34, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 94, cycles: 0 }

@@ -1,0 +1,28 @@
+# 02_warm_portra
+# Warm film; creamy skin tone, soft highlights, Portra-400 feel.
+# Suited for: portrait, people content, warm/golden settings, fashion.
+name: warm_portra
+description: Warm film, creamy skin tone, soft highlights
+
+white_balance: { temp: 0.28, tint: 0.04 }
+exposure: { stops: 0.05 }
+highlight_rolloff: { knee: 0.65, strength: 0.6 }
+lift_gamma_gain:
+  lift:  [0.008, 0.004, 0.0]
+  gamma: [1.03, 1.01, 0.98]
+  gain:  [1.03, 1.0, 0.96]
+split_toning:
+  shadow:    [-0.008, 0.0, 0.018]
+  highlight: [0.03, 0.015, -0.018]
+  strength: 0.5
+tone_curve: { strength: 0.2, pivot: 0.45 }
+vibrance: { vibrance: 0.22, saturation: 1.0, skin_protect: 0.7 }
+halation: { threshold: 0.68, radius_frac: 0.014, tint: [1.0, 0.55, 0.4], strength: 0.5 }
+distortion: { k: -0.008 }
+chromatic_aberration: { amount: 0.0012 }
+vignette: { strength: 0.22, feather: 0.5 }
+black_point: { lift: 0.015 }
+clarity: { amount: 0.1, radius_frac: 0.035 }
+grain: { luma: 0.018, chroma: 0.008, size: 1.6, floor: 0.15 }
+sharpen: { amount: 0.35, radius_frac: 0.0015, halo: 0.0 }
+jpeg: { quality: 95, cycles: 0 }

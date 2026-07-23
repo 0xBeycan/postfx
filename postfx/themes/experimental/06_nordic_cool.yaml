@@ -1,0 +1,28 @@
+# 06_nordic_cool
+# Cool and desaturated; flat contrast, clean, Scandinavian matte light.
+# Suited for: architecture/interior, minimalist fashion, tech, winter/outdoor.
+name: nordic_cool
+description: Cool, desaturated, flat contrast, clean
+
+white_balance: { temp: -0.35, tint: -0.04 }
+exposure: { stops: 0.05 }
+highlight_rolloff: { knee: 0.75, strength: 0.3 }
+lift_gamma_gain:
+  lift:  [0.0, 0.0, 0.004]
+  gamma: [1.02, 1.02, 1.03]
+  gain:  [0.98, 1.0, 1.03]
+split_toning:
+  shadow:    [-0.01, 0.005, 0.015]
+  highlight: [-0.005, 0.0, 0.01]
+  strength: 0.4
+tone_curve: { strength: 0.1, pivot: 0.48 }
+vibrance: { vibrance: 0.06, saturation: 0.85, skin_protect: 0.5 }
+halation: { threshold: 0.8, radius_frac: 0.01, tint: [0.9, 0.7, 0.6], strength: 0.0 }
+distortion: { k: 0.0 }
+chromatic_aberration: { amount: 0.0 }
+vignette: { strength: 0.12, feather: 0.6 }
+black_point: { lift: 0.02 }
+clarity: { amount: 0.18, radius_frac: 0.03 }
+grain: { luma: 0.01, chroma: 0.004, size: 1.5, floor: 0.2 }
+sharpen: { amount: 0.45, radius_frac: 0.0014, halo: 0.0 }
+jpeg: { quality: 95, cycles: 0 }
