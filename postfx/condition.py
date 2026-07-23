@@ -39,6 +39,10 @@ def validate(raw, source="<condition>"):
         raise ValueError(
             f"{source}: unknown key {key!r}. "
             f"Valid keys: {', '.join(sorted(CONDITION_DEFAULTS))}")
+    for key, value in raw.items():
+        if key in CONDITION_DEFAULTS and (
+                isinstance(value, bool) or not isinstance(value, (int, float))):
+            raise ValueError(f"{source}: {key!r} must be a number.")
     return True
 
 

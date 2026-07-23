@@ -55,6 +55,17 @@ def test_unknown_key_rejected():
         condition.validate({"grain": 1.0, "bogus_key": 1.0})
 
 
+def test_non_numeric_multiplier_rejected():
+    """A non-numeric multiplier fails fast at validation, not deep in the
+    pipeline. YAML null (`grain:`) is the common author slip."""
+    with pytest.raises(ValueError):
+        condition.validate({"grain": None})
+    with pytest.raises(ValueError):
+        condition.validate({"halation": [1.0, 2.0]})
+    with pytest.raises(ValueError):
+        condition.validate({"chroma_noise": True})
+
+
 def test_missing_key_fills_neutral():
     """A partial condition leaves the omitted multipliers at 1.0 (no scaling)."""
     cfg = dict(condition.CONDITION_DEFAULTS)
