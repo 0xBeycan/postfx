@@ -70,14 +70,14 @@ from postfx import Theme, Condition
 # One-liner: load, process, save. Names are StrEnums — autocomplete + typo-safe.
 # (Plain strings like "portra_400" still work everywhere too.)
 postfx.process_file("photo.jpg", "graded.jpg",
-                    theme=Theme.CINEMATIC_TEAL_ORANGE,
+                    theme=Theme.Signature.CINEMATIC_TEAL_ORANGE,
                     condition=Condition.INDOOR_EVENING, strength=1.0)
 
 # Or work with arrays directly (float32 [0,1] RGB in, same out)
 from postfx import load_theme, get_condition, imgio, process
 
 rgb, alpha = imgio.load_image("photo.jpg")
-out = process(rgb, load_theme(Theme.PORTRA_400), get_condition(Condition.DAY_OUTDOOR),
+out = process(rgb, load_theme(Theme.Signature.PORTRA_400), get_condition(Condition.DAY_OUTDOOR),
               strength=1.0, seed=imgio.seed_from_path("photo.jpg"))
 imgio.save_image("graded.png", out, alpha)
 ```

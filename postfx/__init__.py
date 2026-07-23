@@ -6,7 +6,7 @@ Runs on CPU; no GPU required.
 Quick use:
     from postfx import process_file, Theme, Condition
     process_file("in.png", "out.png",
-                 theme=Theme.PORTRA_400, condition=Condition.DAY_OUTDOOR)
+                 theme=Theme.Signature.PORTRA_400, condition=Condition.DAY_OUTDOOR)
 """
 
 from . import color, imgio, ops
@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 
-def process_file(in_path, out_path, theme=Theme.PORTRA_400,
+def process_file(in_path, out_path, theme=Theme.Signature.PORTRA_400,
                  condition=Condition.NEUTRAL, strength=1.0):
     """Process and save a single file. theme: name/path/Theme; condition:
     name/Condition. Convenience wrapper around load + process + save.
