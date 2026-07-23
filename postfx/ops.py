@@ -55,6 +55,12 @@ def lift_gamma_gain(x, lift, gamma, gain):
     lift = np.asarray(lift, dtype=np.float32)
     gamma = np.asarray(gamma, dtype=np.float32)
     out = np.clip(x * gain + lift, 0.0, None)
+    # Skip the power at neutral gamma: np.power(_, 1.0) is not bit-exact on
+    # every numpy build, so applying it would break the neutral-identity
+    # invariant and byte-for-byte determinism (seen as a 3.14 x86 CI failure,
+    # exact on macOS). Non-neutral gamma is unchanged.
+    if np.all(gamma == 1.0):
+        return out.astype(np.float32)
     return np.power(out, 1.0 / gamma).astype(np.float32)
 
 
