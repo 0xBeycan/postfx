@@ -2,8 +2,8 @@
 
 **Theme-based image post-processing & film-emulation pipeline — pure Python, CPU, no GPU.**
 
-[![PyPI version](https://img.shields.io/pypi/v/postfx.svg)](https://pypi.org/project/postfx/)
-[![Python versions](https://img.shields.io/pypi/pyversions/postfx.svg)](https://pypi.org/project/postfx/)
+[![PyPI version](https://img.shields.io/pypi/v/postfx.svg?cache=20260724)](https://pypi.org/project/postfx/)
+[![Python versions](https://img.shields.io/pypi/pyversions/postfx.svg?cache=20260724)](https://pypi.org/project/postfx/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/0xBeycan/postfx/blob/main/LICENSE)
 [![CI](https://github.com/0xBeycan/postfx/actions/workflows/ci.yml/badge.svg)](https://github.com/0xBeycan/postfx/actions/workflows/ci.yml)
 
