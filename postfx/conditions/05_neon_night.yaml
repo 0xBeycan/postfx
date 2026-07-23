@@ -1,0 +1,9 @@
+# 05_neon_night
+# Neon-lit night, no flash — bloom-dominant: strongest halation, only moderate grain.
+# When: city night, neon signs, bars/clubs, bright artificial point sources.
+name: neon_night
+description: Neon-lit night — bloom-dominant, moderate grain
+
+grain:        1.4
+chroma_noise: 0.9
+halation:     1.7

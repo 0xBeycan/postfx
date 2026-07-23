@@ -13,8 +13,8 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from .condition import get_condition
 from .pipeline import process
-from .scenes import get_scene
 from .theme import list_theme_files, load_theme
 
 
@@ -34,14 +34,14 @@ def _font(size):
         return ImageFont.load_default()
 
 
-def build_contact_sheet(rgb, out_path, category="signature", scene="indoor_evening",
+def build_contact_sheet(rgb, out_path, category="signature", condition="neutral",
                         strength=1.0, seed=None, cols=5, thumb_w=460, pad=14,
                         label_h=34, themes_dir=None):
     """Apply every theme in `category` to `rgb` and save a labeled grid.
 
     category: theme category ('signature', 'experimental', or 'all').
     """
-    scene_cfg = get_scene(scene)
+    condition_cfg = get_condition(condition)
     if seed is None:
         seed = 12345  # fixed for the sheet: a fair comparison across themes
 
@@ -65,7 +65,7 @@ def build_contact_sheet(rgb, out_path, category="signature", scene="indoor_eveni
 
     for idx, path in enumerate(theme_files):
         theme = load_theme(path)
-        out = process(src, theme, scene_cfg, strength, seed)
+        out = process(src, theme, condition_cfg, strength, seed)
         u8 = np.clip(out * 255.0 + 0.5, 0, 255).astype(np.uint8)
         tile = Image.fromarray(u8)
 

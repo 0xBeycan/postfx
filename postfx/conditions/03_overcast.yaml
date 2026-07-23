@@ -1,0 +1,9 @@
+# 03_overcast
+# Soft diffuse light — slight grain, a hint of chroma noise, the lowest bloom.
+# When: cloudy days, open shade, soft-box indoor, muted low-contrast light.
+name: overcast
+description: Soft diffuse light — slight grain, minimal bloom
+
+grain:        0.4
+chroma_noise: 0.1
+halation:     0.5

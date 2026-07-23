@@ -1,7 +1,7 @@
 """Command-line interface: run (single/batch), sheet, list.
 
     python -m postfx run   --input <file|folder> --theme portra_400 \\
-                           --scene day_outdoor --strength 1.0 --out <folder>
+                           --condition day_outdoor --strength 1.0 --out <folder>
     python -m postfx sheet --input <single image> --out contact_sheet.jpg
     python -m postfx list
 """
@@ -13,18 +13,18 @@ from functools import partial
 from multiprocessing import Pool, cpu_count
 
 from . import imgio
+from .condition import DEFAULT_CONDITION, get_condition, list_conditions
 from .pipeline import process
-from .scenes import DEFAULT_SCENE, SCENES, get_scene
 from .sheet import build_contact_sheet
 from .theme import DEFAULT_CATEGORY, list_categories, list_themes, load_theme
 
 
-def _process_one(job, theme, scene_cfg, strength):
+def _process_one(job, theme, condition_cfg, strength):
     """Batch worker (picklable). job = (in_path, out_path)."""
     in_path, out_path = job
     rgb, alpha = imgio.load_image(in_path)
     seed = imgio.seed_from_path(in_path)
-    out = process(rgb, theme, scene_cfg, strength, seed)
+    out = process(rgb, theme, condition_cfg, strength, seed)
     imgio.save_image(out_path, out, alpha,
                      jpeg_quality=theme["jpeg"]["quality"],
                      jpeg_cycles=theme["jpeg"]["cycles"])
@@ -41,7 +41,7 @@ def _out_path(in_path, out_dir, out_ext):
 
 def cmd_run(args):
     theme = load_theme(args.theme)
-    scene_cfg = get_scene(args.scene)
+    condition_cfg = get_condition(args.condition)
 
     if os.path.isdir(args.input):
         inputs = imgio.list_images(args.input)
@@ -57,11 +57,11 @@ def cmd_run(args):
     os.makedirs(args.out, exist_ok=True)
     jobs = [(p, _out_path(p, args.out, args.format)) for p in inputs]
 
-    worker = partial(_process_one, theme=theme, scene_cfg=scene_cfg,
+    worker = partial(_process_one, theme=theme, condition_cfg=condition_cfg,
                      strength=args.strength)
 
-    print(f"{len(jobs)} image(s) | theme={theme['name']} | scene={args.scene} "
-          f"| strength={args.strength}")
+    print(f"{len(jobs)} image(s) | theme={theme['name']} "
+          f"| condition={args.condition} | strength={args.strength}")
 
     if len(jobs) > 1 and args.jobs != 1:
         workers = args.jobs if args.jobs > 0 else min(cpu_count(), len(jobs))
@@ -82,7 +82,7 @@ def cmd_sheet(args):
         return 1
     rgb, _ = imgio.load_image(args.input)
     out = build_contact_sheet(rgb, args.out, category=args.category,
-                              scene=args.scene, strength=args.strength,
+                              condition=args.condition, strength=args.strength,
                               cols=args.cols)
     print(f"Contact sheet -> {out}")
     return 0
@@ -99,7 +99,12 @@ def cmd_list(args):
             print(f"[{category}]")
         print(f"  {name.ljust(width)}  {desc}")
     print(f"\nCategories: {', '.join(list_categories())}")
-    print(f"Scenes: {', '.join(SCENES)}  (default: {DEFAULT_SCENE})")
+
+    conditions = list_conditions()
+    cwidth = max((len(name) for name, _ in conditions), default=10)
+    print(f"\nConditions (default: {DEFAULT_CONDITION}):")
+    for name, desc in conditions:
+        print(f"  {name.ljust(cwidth)}  {desc}")
     return 0
 
 
@@ -112,7 +117,8 @@ def build_parser():
     r = sub.add_parser("run", help="process a single image or a folder")
     r.add_argument("--input", required=True, help="file or folder")
     r.add_argument("--theme", required=True, help="theme name or YAML path")
-    r.add_argument("--scene", default=DEFAULT_SCENE, choices=list(SCENES))
+    r.add_argument("--condition", default=DEFAULT_CONDITION,
+                   choices=[name for name, _ in list_conditions()])
     r.add_argument("--strength", type=float, default=1.0,
                    help="0=original, 1=full theme, 1.5=over")
     r.add_argument("--out", required=True, help="output folder")
@@ -127,7 +133,8 @@ def build_parser():
     s.add_argument("--out", default="contact_sheet.jpg")
     s.add_argument("--category", default=DEFAULT_CATEGORY,
                    help="theme category to render (signature/experimental/all)")
-    s.add_argument("--scene", default=DEFAULT_SCENE, choices=list(SCENES))
+    s.add_argument("--condition", default=DEFAULT_CONDITION,
+                   choices=[name for name, _ in list_conditions()])
     s.add_argument("--strength", type=float, default=1.0)
     s.add_argument("--cols", type=int, default=5)
     s.set_defaults(func=cmd_sheet)

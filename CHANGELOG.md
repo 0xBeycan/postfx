@@ -15,11 +15,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   lift, clarity, grain, sharpen, and optional JPEG re-encode.
 - 30 built-in themes (15 `signature` film-stock/industry looks, 15
   `experimental`) plus `.cube` 3D LUT support (a LUT is a selectable theme).
-- Three scene profiles (`day_outdoor`, `indoor_evening`, `night_flash`) as an
-  independent grain/noise/halation axis.
+- Six shooting-condition profiles (`neutral`, `day_outdoor`, `overcast`,
+  `indoor_evening`, `neon_night`, `night_flash`) as an independent
+  grain/noise/halation axis. YAML-defined (like themes); the default `neutral`
+  applies no scaling, so a theme's texture is used exactly as authored.
 - `postfx` CLI (`run`, `sheet`, `list`) and a small Python API
-  (`process_file`, `process`, `load_theme`, `get_scene`, …).
+  (`process_file`, `process`, `load_theme`, `get_condition`, …).
+- Typed `StrEnum` names for the public API — `Theme`, `Condition`, `Luts` —
+  for autocomplete and typo-checking; plain strings still work everywhere.
 - Deterministic, resolution-independent grain (seed from the filename hash).
-- 90 tests.
+- 108 tests.
 
 [1.0.0]: https://github.com/0xBeycan/postfx/releases/tag/v1.0.0

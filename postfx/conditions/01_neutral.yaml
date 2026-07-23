@@ -1,0 +1,9 @@
+# 01_neutral
+# Identity — all multipliers 1.0, so the theme's texture is used exactly as authored.
+# When: the default; use when you want the theme untouched, or as a baseline.
+name: neutral
+description: No scaling — the theme's texture exactly as authored (default)
+
+grain:        1.0
+chroma_noise: 1.0
+halation:     1.0

@@ -52,12 +52,12 @@ uv tool install postfx # as a standalone CLI tool
 
 ```bash
 # One image or a whole folder (batch = auto-parallel across cores)
-postfx run --input photo.jpg --theme portra_400 --scene day_outdoor --out out/
+postfx run --input photo.jpg --theme portra_400 --condition day_outdoor --out out/
 
 # Preview every signature theme on one image as a labeled grid
 postfx sheet --input photo.jpg --out sheet.jpg
 
-# List all themes (grouped by category) and scenes
+# List all themes (grouped by category) and conditions
 postfx list
 ```
 
@@ -65,17 +65,19 @@ postfx list
 
 ```python
 import postfx
+from postfx import Theme, Condition
 
-# One-liner: load, process, save
+# One-liner: load, process, save. Names are StrEnums — autocomplete + typo-safe.
+# (Plain strings like "portra_400" still work everywhere too.)
 postfx.process_file("photo.jpg", "graded.jpg",
-                    theme="cinematic_teal_orange", scene="indoor_evening",
-                    strength=1.0)
+                    theme=Theme.CINEMATIC_TEAL_ORANGE,
+                    condition=Condition.INDOOR_EVENING, strength=1.0)
 
 # Or work with arrays directly (float32 [0,1] RGB in, same out)
-from postfx import load_theme, get_scene, imgio, process
+from postfx import load_theme, get_condition, imgio, process
 
 rgb, alpha = imgio.load_image("photo.jpg")
-out = process(rgb, load_theme("portra_400"), get_scene("day_outdoor"),
+out = process(rgb, load_theme(Theme.PORTRA_400), get_condition(Condition.DAY_OUTDOOR),
               strength=1.0, seed=imgio.seed_from_path("photo.jpg"))
 imgio.save_image("graded.png", out, alpha)
 ```
@@ -130,17 +132,26 @@ there with a YAML referencing it — or point any theme's `lut.file` at an exter
 absolute path. The LUT is applied in display (sRGB) space, with grain/lens/texture
 on top. See [`postfx/themes/luts/README.md`](postfx/themes/luts/README.md).
 
-## Scene profiles
+## Conditions
 
-A **separate axis** from the theme. Scenes modulate grain, chroma noise and
-halation by a multiplier, so one theme stays consistent across shooting
-conditions. Select with `--scene` (default `indoor_evening`).
+A **separate axis** from the theme. A theme sets the *look* (color); a condition
+sets *how strongly* the capture/optical texture — grain, chroma noise, halation —
+reads for the situation a shot was taken in, as a multiplier on the theme's own
+values. So one theme stays consistent across shooting conditions. Select with
+`--condition` (default `neutral` — the theme's texture exactly as authored).
 
-| Scene | grain | chroma noise | halation |
-|-------|-------|--------------|----------|
-| `day_outdoor` | 0.15× | 0.0× | 0.7× |
-| `indoor_evening` | 1.0× | 0.5× | 1.0× |
-| `night_flash` | 2.2× | 1.5× | 1.4× |
+| Condition | grain | chroma noise | halation | Character |
+|-----------|-------|--------------|----------|-----------|
+| `neutral` | 1.0× | 1.0× | 1.0× | identity / default — theme as authored |
+| `day_outdoor` | 0.2× | 0.0× | 0.7× | clean daylight |
+| `overcast` | 0.4× | 0.1× | 0.5× | soft, diffuse, low bloom |
+| `indoor_evening` | 1.0× | 0.6× | 1.0× | tungsten interior |
+| `neon_night` | 1.4× | 0.9× | 1.7× | neon-lit night, bloom-dominant |
+| `night_flash` | 2.2× | 1.5× | 1.4× | direct flash, grittiest |
+
+Conditions live under `postfx/conditions/` as YAML — add your own exactly the way
+you'd add a theme. `neon_night` deliberately blooms harder than `night_flash`
+while staying less grainy: the three multipliers are independent, not one slider.
 
 ## Global strength
 

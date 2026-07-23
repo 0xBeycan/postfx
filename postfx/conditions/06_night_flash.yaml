@@ -1,0 +1,9 @@
+# 06_night_flash
+# Direct on-camera flash in the dark — grittiest: heavy grain, strong noise, boosted bloom.
+# When: flash snapshots, party/night photography, harsh direct light.
+name: night_flash
+description: Direct flash at night — heavy grain, strong chroma noise, boosted bloom
+
+grain:        2.2
+chroma_noise: 1.5
+halation:     1.4

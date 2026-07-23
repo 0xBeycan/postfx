@@ -1,0 +1,9 @@
+# 02_day_outdoor
+# Clean daylight — minimal grain, no chroma noise, only a light highlight bloom.
+# When: sunny outdoor, well-lit product/landscape in good light.
+name: day_outdoor
+description: Clean daylight — minimal grain, no chroma noise, light bloom
+
+grain:        0.2
+chroma_noise: 0.0
+halation:     0.7

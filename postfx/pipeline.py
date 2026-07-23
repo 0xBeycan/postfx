@@ -10,19 +10,19 @@ from . import color, ops
 from .theme import DEFAULTS, load_theme
 
 
-def process(img, theme, scene=None, strength=1.0, seed=0):
-    """Apply a theme + scene + global strength to a single image.
+def process(img, theme, condition=None, strength=1.0, seed=0):
+    """Apply a theme + condition + global strength to a single image.
 
-    img     : float32 [0,1] sRGB, HxWx3
-    theme   : theme dict merged with DEFAULTS (output of theme.load_theme)
-    scene   : {'grain','chroma_noise','halation'} multipliers, or None
-    strength: 0=original, 1=full theme, 1.5=over (linear blend/extrapolate)
-    seed    : integer for grain determinism
+    img      : float32 [0,1] sRGB, HxWx3
+    theme    : theme dict merged with DEFAULTS (output of theme.load_theme)
+    condition: {'grain','chroma_noise','halation'} multipliers, or None
+    strength : 0=original, 1=full theme, 1.5=over (linear blend/extrapolate)
+    seed     : integer for grain determinism
     """
-    scene = scene or {}
-    grain_mul = scene.get("grain", 1.0)
-    chroma_mul = scene.get("chroma_noise", 1.0)
-    hal_mul = scene.get("halation", 1.0)
+    condition = condition or {}
+    grain_mul = condition.get("grain", 1.0)
+    chroma_mul = condition.get("chroma_noise", 1.0)
+    hal_mul = condition.get("halation", 1.0)
 
     original = img
     t = theme
@@ -89,7 +89,7 @@ def process(img, theme, scene=None, strength=1.0, seed=0):
     cl = t["clarity"]
     srgb = ops.clarity(srgb, cl["amount"], cl["radius_frac"])
 
-    # 16. Grain (luminance-weighted; scene multipliers here)
+    # 16. Grain (luminance-weighted; condition multipliers here)
     gr = t["grain"]
     srgb = ops.grain(srgb, gr["luma"] * grain_mul, gr["chroma"] * chroma_mul,
                      gr["size"], gr.get("floor", 0.1), seed)

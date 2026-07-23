@@ -1,0 +1,9 @@
+# 04_indoor_evening
+# Tungsten interior at reference intensity — full grain, moderate chroma noise.
+# When: indoor evening, tungsten/ambient light, dim rooms without flash.
+name: indoor_evening
+description: Tungsten interior — full grain, moderate chroma noise
+
+grain:        1.0
+chroma_noise: 0.6
+halation:     1.0

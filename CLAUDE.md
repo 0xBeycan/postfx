@@ -11,11 +11,13 @@ theme-based "look". No GPU, no ML. All code and docs are in English.
 | `postfx/ops.py` | Atomic ops (pure functions) + `.cube` 3D LUT parse/apply |
 | `postfx/pipeline.py` | Fixed processing order / orchestration |
 | `postfx/theme.py` | YAML load, validation, DEFAULTS merge, categories |
-| `postfx/scenes.py` | 3 scene profiles (grain/noise/halation multipliers) |
+| `postfx/condition.py` | YAML load/validation for condition profiles (grain/noise/halation multipliers) |
 | `postfx/imgio.py` | Load/save (resolution preserved), deterministic seed |
 | `postfx/sheet.py` | Contact-sheet (theme grid) generation |
 | `postfx/cli.py` | `run` / `sheet` / `list` |
+| `postfx/enums.py` | Typed `StrEnum` names: `Theme` / `Condition` / `Luts` (public API) |
 | `postfx/themes/{signature,experimental,luts}/` | Theme YAMLs + bundled `.cube` |
+| `postfx/conditions/` | Condition YAMLs (`neutral` default + 5 shooting conditions) |
 | `tests/` | pytest suite |
 
 ## Commands
@@ -23,8 +25,8 @@ theme-based "look". No GPU, no ML. All code and docs are in English.
 ```bash
 uv sync --extra dev            # or: pip install -e ".[dev]"
 uv run pytest -q               # tests
-python -m postfx list          # themes (by category) + scenes
-python -m postfx run --input <file|folder> --theme <name> --scene <name> --out <dir>
+python -m postfx list          # themes (by category) + conditions
+python -m postfx run --input <file|folder> --theme <name> --condition <name> --out <dir>
 python -m postfx sheet --input <image> --out sheet.jpg
 uv build                       # build wheel + sdist into dist/
 ```
@@ -48,6 +50,13 @@ uv build                       # build wheel + sdist into dist/
   placeholder values — actually tune it. Verify with `sheet` + `pytest`.
 - LUT: drop a `.cube` (3D) into `postfx/themes/luts/` + a YAML with
   `lut: { file: X.cube }`. See `postfx/themes/luts/README.md`.
+- Condition: add `postfx/conditions/NN_<name>.yaml` with `grain` / `chroma_noise`
+  / `halation` multipliers (an omitted key defaults to `1.0` = no scaling; an
+  unknown key raises). The `NN_` prefix orders it by intensity. Keep `neutral`
+  (all `1.0`) as the identity/default.
+- After adding any theme / LUT / condition, add the matching member to
+  `postfx/enums.py` (`Theme` / `Luts` / `Condition`). `tests/test_enums.py` fails
+  if the enums drift from the shipped files.
 
 ## Release
 
