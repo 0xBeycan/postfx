@@ -233,11 +233,7 @@ def grain(img, luma_amount=0.0, chroma_amount=0.0, size=1.5, floor=0.1, seed=0):
     Resolution-INDEPENDENT appearance: grain is generated at a low resolution
     that depends only on size and GRAIN_REF, then upscaled to full res. So
     'size' yields the same relative grain regardless of the image's pixel count
-    ('size' px at the GRAIN_REF reference). Below 1.0 the grain gets finer than
-    the reference pixel grid; once it would be finer than the image's own
-    pixels (size <= GRAIN_REF / long edge) it is plain per-pixel noise — the
-    sensor-noise look that disappears when the image is viewed small.
-    seed makes it deterministic.
+    ('size' px at the GRAIN_REF reference). seed makes it deterministic.
     """
     import cv2
     if luma_amount <= 0 and chroma_amount <= 0:
@@ -246,7 +242,7 @@ def grain(img, luma_amount=0.0, chroma_amount=0.0, size=1.5, floor=0.1, seed=0):
     rng = np.random.default_rng(int(seed))
     long_edge = max(h, w)
     # Generation size along the long edge = GRAIN_REF/size (resolution-independent).
-    scale = min(1.0, (GRAIN_REF / max(0.25, size)) / long_edge)
+    scale = min(1.0, (GRAIN_REF / max(1.0, size)) / long_edge)
     lh = max(2, int(round(h * scale)))
     lw = max(2, int(round(w * scale)))
 

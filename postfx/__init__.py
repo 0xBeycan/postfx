@@ -17,7 +17,7 @@ from .pipeline import process, resolve_theme
 from .theme import (DEFAULT_CATEGORY, list_categories, list_luts, list_themes,
                     load_theme)
 
-__version__ = "1.1.0"
+__version__ = "1.0.1"
 
 __all__ = [
     "process", "process_file", "resolve_theme", "load_theme", "list_themes",

@@ -10,6 +10,6 @@ lut: { file: PunchOverlay.cube, intensity: 1.0 }
 # A restrained finish on top so LUT themes still feel "processed" and consistent.
 highlight_rolloff: { knee: 0.78, strength: 0.25 }
 vignette: { strength: 0.12, feather: 0.55 }
-grain: { luma: 0.011, chroma: 0.002, size: 0.56, floor: 0.18 }
+grain: { luma: 0.01, chroma: 0.004, size: 1.5, floor: 0.18 }
 sharpen: { amount: 0.35, radius_frac: 0.0014, halo: 0.0 }
 jpeg: { quality: 94, cycles: 0 }

@@ -1,7 +1,0 @@
-# 02_fine_grain_medium
-# The same grain one step stronger — visible at 100% on skin and flat areas, invisible at feed size. Colour untouched.
-# Suited for: the default social-still finish.
-name: fine_grain_medium
-description: Fine uniform luma grain, medium; colour untouched
-
-grain: { luma: 0.028, chroma: 0.002, size: 0.5, floor: 0.85 }

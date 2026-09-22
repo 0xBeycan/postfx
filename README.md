@@ -24,7 +24,7 @@ no ML, no cloud.
 ## Highlights
 
 - **Theme = YAML.** Code and looks are fully decoupled. 30 themes built in
-  (15 film-stock/industry `signature` looks, 15 `experimental`, 3 texture-only `our_choices`), plus `.cube` LUT support.
+  (15 film-stock/industry `signature` looks, 15 `experimental`), plus `.cube` LUT support.
 - **Pure & deterministic.** Every operation is a pure `(array, params) -> array`
   function. Same image + theme = byte-identical output (grain seed derives from
   the filename).
@@ -97,23 +97,9 @@ across categories, so `--theme <name>` resolves globally.
 
 | Category | What | Count |
 |----------|------|-------|
-| `our_choices` | House finishes: texture only, colour untouched | 3 |
 | `signature` | Market-standard, reference-grounded looks — the primary set | 15 |
 | `luts` | LUT-based themes (a `.cube` file is a selectable look) | 1+ |
 | `experimental` | Earlier / exploratory looks | 15 |
-
-### Our choices (texture only)
-
-Measured from published social stills, not from film stocks: fine, near-monochrome
-grain over the whole frame at every brightness, generated per pixel so it reads as
-sensor texture at 100% and disappears at feed size. Colour is untouched — chain a
-signature theme before one for a look.
-
-| Theme | Character |
-|-------|-----------|
-| `fine_grain_light` | luma 0.018 — the default social-still finish |
-| `fine_grain_medium` | luma 0.028 — visible on skin at 100% |
-| `fine_grain_heavy` | luma 0.040 — the compressed re-upload look |
 
 ### Signature (grounded in real film stocks & industry grades)
 
@@ -206,7 +192,7 @@ Each theme YAML carries the op blocks below. Omitted keys fall back to a neutral
 | `vignette` | `strength`, `feather`, `roundness` | Radial darkening; feather = start radius |
 | `black_point` | `lift` (scalar or `[3]`) | Lifts blacks (matte/faded); can be tinted |
 | `clarity` | `amount`, `radius_frac` | Wide-radius local contrast; negative = soften |
-| `grain` | `luma`, `chroma`, `size`, `floor` | Luminance-weighted, resolution-independent grain. `size` is in px at a 1024 px long edge; below 1 it gets finer than that grid, and at `size <= 1024 / long edge` it is plain per-pixel noise |
+| `grain` | `luma`, `chroma`, `size`, `floor` | Luminance-weighted, resolution-independent grain |
 | `sharpen` | `amount`, `radius_frac`, `halo` | Narrow-radius unsharp + optional halo |
 | `jpeg` | `quality`, `cycles` | JPEG re-encode loop (JPEG output only) |
 

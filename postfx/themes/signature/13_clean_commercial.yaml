@@ -23,6 +23,6 @@ chromatic_aberration: { amount: 0.0 }
 vignette: { strength: 0.1, feather: 0.58 }
 black_point: { lift: 0.0 }
 clarity: { amount: 0.26, radius_frac: 0.028 }
-grain: { luma: 0.007, chroma: 0.0, size: 0.5, floor: 0.2 }
+grain: { luma: 0.006, chroma: 0.0, size: 1.4, floor: 0.2 }
 sharpen: { amount: 0.55, radius_frac: 0.0013, halo: 0.0 }
 jpeg: { quality: 96, cycles: 0 }
