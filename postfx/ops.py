@@ -7,7 +7,6 @@ expects (linear or sRGB) is noted in its docstring; the pipeline manages order.
 
 import functools
 
-import cv2
 import numpy as np
 
 from .color import LUMA
@@ -15,6 +14,7 @@ from .color import LUMA
 
 def _gaussian(img, sigma):
     """Gaussian blur with ksize derived from sigma (border: reflect)."""
+    import cv2
     if sigma <= 0:
         return img
     return cv2.GaussianBlur(
@@ -148,6 +148,7 @@ def barrel_distortion(img, k=0.0):
     """Barrel (k<0) / pincushion (k>0) distortion. Radius normalized by the
     half-diagonal; size preserved, edges filled by reflection.
     """
+    import cv2
     if k == 0:
         return img
     h, w = img.shape[:2]
@@ -165,6 +166,7 @@ def chromatic_aberration(img, amount=0.0):
     """Lateral CA — magnify the R channel from center, shrink the B channel.
     Color fringing increases toward the edges. amount is typically 0.001-0.004.
     """
+    import cv2
     if amount == 0:
         return img
     h, w = img.shape[:2]
@@ -233,6 +235,7 @@ def grain(img, luma_amount=0.0, chroma_amount=0.0, size=1.5, floor=0.1, seed=0):
     'size' yields the same relative grain regardless of the image's pixel count
     ('size' px at the GRAIN_REF reference). seed makes it deterministic.
     """
+    import cv2
     if luma_amount <= 0 and chroma_amount <= 0:
         return img
     h, w = img.shape[:2]
@@ -359,6 +362,7 @@ def jpeg_cycle(img_u8, quality=95, cycles=1):
     """JPEG encode/decode loop — adds compression character. Operates on uint8
     BGR (cv2). cycles=0 => no-op.
     """
+    import cv2
     if cycles <= 0:
         return img_u8
     out = img_u8

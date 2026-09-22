@@ -13,7 +13,6 @@ Theme names are unique across categories, so resolution by name works globally.
 import copy
 import os
 
-import yaml
 
 THEMES_DIR = os.path.join(os.path.dirname(__file__), "themes")
 DEFAULT_CATEGORY = "signature"
@@ -118,6 +117,8 @@ def load_theme(name_or_path):
     """Load a theme by name (e.g. 'portra_400' or '01_portra_400') or by path;
     return the full config merged with DEFAULTS.
     """
+    import yaml
+
     path = _resolve_path(name_or_path)
     with open(path, "r", encoding="utf-8") as fh:
         raw = yaml.safe_load(fh) or {}

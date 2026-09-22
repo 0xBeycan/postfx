@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-09-22
+
+### Changed
+
+- `cv2`, `PIL` and `yaml` are now imported inside the functions that use them
+  instead of at module level. `import postfx` no longer loads OpenCV (~70-170 ms
+  cold); the cost is paid once, on the first call that needs it. No API change.
+
 ## [1.0.0] - 2026-07-24
 
 ### Added
@@ -26,4 +34,5 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Deterministic, resolution-independent grain (seed from the filename hash).
 - 108 tests.
 
+[1.0.1]: https://github.com/0xBeycan/postfx/releases/tag/v1.0.1
 [1.0.0]: https://github.com/0xBeycan/postfx/releases/tag/v1.0.0

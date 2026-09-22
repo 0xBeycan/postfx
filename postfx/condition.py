@@ -15,7 +15,6 @@ condition's description.
 
 import os
 
-import yaml
 
 CONDITIONS_DIR = os.path.join(os.path.dirname(__file__), "conditions")
 
@@ -98,6 +97,8 @@ def load_condition(name_or_path, conditions_dir=CONDITIONS_DIR):
     grain/chroma_noise/halation multipliers merged over CONDITION_DEFAULTS,
     plus 'name' and 'description'.
     """
+    import yaml
+
     path = _resolve_path(name_or_path, conditions_dir)
     with open(path, "r", encoding="utf-8") as fh:
         raw = yaml.safe_load(fh) or {}

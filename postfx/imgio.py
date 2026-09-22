@@ -8,7 +8,6 @@ alpha; JPEG applies an optional re-encode loop.
 import hashlib
 import os
 
-import cv2
 import numpy as np
 
 from . import ops
@@ -29,6 +28,7 @@ def load_image(path):
     """Load an image as float32 [0,1] RGB. Returns (rgb, alpha); alpha is None
     if absent. Bit depth is normalized automatically.
     """
+    import cv2
     data = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
     if data is None:
         raise FileNotFoundError(f"Could not read image: {path}")
@@ -56,6 +56,7 @@ def save_image(path, rgb, alpha=None, jpeg_quality=95, jpeg_cycles=0):
     """Save float32 [0,1] RGB as 8-bit. If the extension is JPEG, apply the
     re-encode loop (jpeg_cycles); if PNG, re-attach alpha and skip the loop.
     """
+    import cv2
     path = str(path)
     u8 = np.clip(rgb * 255.0 + 0.5, 0, 255).astype(np.uint8)
     bgr = cv2.cvtColor(u8, cv2.COLOR_RGB2BGR)
@@ -80,6 +81,7 @@ def save_image(path, rgb, alpha=None, jpeg_quality=95, jpeg_cycles=0):
 
 def encode_image(rgb, ext=".jpg", jpeg_quality=95, jpeg_cycles=0):
     """Encode float32 [0,1] RGB to in-memory bytes. No file write."""
+    import cv2
     u8 = np.clip(rgb * 255.0 + 0.5, 0, 255).astype(np.uint8)
     bgr = cv2.cvtColor(u8, cv2.COLOR_RGB2BGR)
     if ext.lower() in (".jpg", ".jpeg"):
@@ -96,6 +98,7 @@ def encode_image(rgb, ext=".jpg", jpeg_quality=95, jpeg_cycles=0):
 
 def decode_image(data):
     """Decode in-memory bytes to float32 [0,1] RGB."""
+    import cv2
     arr = np.frombuffer(data, dtype=np.uint8)
     img = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if img is None:

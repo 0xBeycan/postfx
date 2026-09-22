@@ -9,9 +9,7 @@ into a grid with name labels, and saves a single JPG. Defaults to the
 import math
 import os
 
-import cv2
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
 
 from .condition import get_condition
 from .pipeline import process
@@ -19,6 +17,7 @@ from .theme import list_theme_files, load_theme
 
 
 def _fit_width(rgb, target_w):
+    import cv2
     h, w = rgb.shape[:2]
     if w <= target_w:
         return rgb
@@ -28,6 +27,7 @@ def _fit_width(rgb, target_w):
 
 
 def _font(size):
+    from PIL import ImageFont
     try:
         return ImageFont.load_default(size=size)
     except TypeError:  # very old Pillow
@@ -41,6 +41,7 @@ def build_contact_sheet(rgb, out_path, category="signature", condition="neutral"
 
     category: theme category ('signature', 'experimental', or 'all').
     """
+    from PIL import Image, ImageDraw
     condition_cfg = get_condition(condition)
     if seed is None:
         seed = 12345  # fixed for the sheet: a fair comparison across themes
