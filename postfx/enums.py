@@ -72,6 +72,15 @@ class Theme(metaclass=_ThemeNamespace):
     `--theme` / `theme=`). Iterate `Theme` for the flat set of all members.
     """
 
+    class OurChoices(StrEnum):
+        """House finishes: texture-only looks measured from published social
+        stills — grain the way a platform-compressed phone photo carries it,
+        colour untouched. Chain a Signature theme before one for a look."""
+
+        FINE_GRAIN_LIGHT = "fine_grain_light"
+        FINE_GRAIN_MEDIUM = "fine_grain_medium"
+        FINE_GRAIN_HEAVY = "fine_grain_heavy"
+
     class Signature(StrEnum):
         """Market-standard, reference-grounded looks (primary set)."""
 

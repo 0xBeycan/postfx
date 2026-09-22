@@ -1,0 +1,7 @@
+# 01_fine_grain_light
+# Fine, near-monochrome grain over the whole frame — the "phone photo that went through a platform" texture that keeps clean AI renders from reading as renders. Colour untouched.
+# Suited for: social stills straight out of a T2I model; chain a signature theme before it for a look.
+name: fine_grain_light
+description: Fine uniform luma grain, light; colour untouched
+
+grain: { luma: 0.018, chroma: 0.001, size: 0.5, floor: 0.85 }
