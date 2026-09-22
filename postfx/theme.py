@@ -18,7 +18,7 @@ THEMES_DIR = os.path.join(os.path.dirname(__file__), "themes")
 DEFAULT_CATEGORY = "signature"
 
 # Preferred display/order of categories (unknown categories sort last).
-_CATEGORY_ORDER = {"signature": 0, "luts": 1, "experimental": 2}
+_CATEGORY_ORDER = {"grain": 0, "signature": 1, "luts": 2, "experimental": 3}
 
 # Neutral / no-op defaults. If a theme omits a key, the value here applies and
 # that op leaves the image unchanged.

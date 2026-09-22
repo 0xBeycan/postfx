@@ -1,0 +1,7 @@
+# 03_fine_grain_heavy
+# Pixel-fine, clearly visible grain — the heaviest of the three, for shots that should read as a compressed re-upload. Colour untouched.
+# Suited for: close-ups and low-light stills where a clean surface would give the render away.
+name: fine_grain_heavy
+description: Pixel-fine uniform luma grain, heavy; colour untouched
+
+grain: { luma: 0.04, chroma: 0.002, size: 0.5, floor: 0.85 }

@@ -5,12 +5,14 @@ from postfx import theme
 
 def test_categories_present():
     cats = theme.list_categories()
+    assert "grain" in cats
     assert "signature" in cats
     assert "experimental" in cats
     assert "luts" in cats
 
 
 def test_signature_and_experimental_counts():
+    assert len(theme.list_theme_files(category="grain")) == 3
     assert len(theme.list_theme_files(category="signature")) == 15
     assert len(theme.list_theme_files(category="experimental")) == 15
     assert len(theme.list_theme_files(category="luts")) >= 1
@@ -18,7 +20,7 @@ def test_signature_and_experimental_counts():
 
 def test_all_themes_load_and_merge():
     files = theme.list_theme_files()
-    assert len(files) == (15 + 15
+    assert len(files) == (3 + 15 + 15
                           + len(theme.list_theme_files(category="luts")))
     for path in files:
         cfg = theme.load_theme(path)
